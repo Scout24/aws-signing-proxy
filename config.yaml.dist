@@ -1,4 +1,0 @@
-upstream_url: https://search-logs-abcdefg.eu-west-1.es.amazonaws.com
-upstream_service_name: es
-upstream_region: eu-west-1
-listen_port: 8080

@@ -1,0 +1,16 @@
+---
+version: "3.7"
+services:
+  aws-signing-proxy:
+    image: aws-signing-proxy:latest
+    container_name: aws-signing-proxy
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+      - UPSTREAM_URL=${UPSTREAM_URL}
+      - UPSTREAM_SERVICE_NAME=${UPSTREAM_SERVICE_NAME}
+      - UPSTREAM_REGION=${UPSTREAM_REGION}
+    ports:
+      - 8080:8080
+    restart: unless-stopped

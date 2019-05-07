@@ -1,0 +1,7 @@
+# First ignore everything
+**
+
+# Then exclude all paths to be included in the Docker build context
+!Gemfile
+!Gemfile.lock
+!proxy.rb

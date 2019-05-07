@@ -4,15 +4,12 @@ require 'rack'
 require 'faraday'
 require 'faraday_middleware/aws_sigv4'
 require 'net/http/persistent'
-require 'yaml'
 require 'aws-sdk-core'
 
-config = YAML.load_file(File.dirname(File.expand_path(__FILE__)) + '/config.yaml')
-
-UPSTREAM_URL = config['upstream_url']
-UPSTREAM_SERVICE_NAME = config['upstream_service_name']
-UPSTREAM_REGION = config['upstream_region']
-LISTEN_PORT = config['listen_port'] || 8080
+UPSTREAM_URL = ENV['UPSTREAM_URL']
+UPSTREAM_SERVICE_NAME = ENV['UPSTREAM_SERVICE_NAME'].to_s.empty? ? 'es' : ENV['UPSTREAM_SERVICE_NAME']
+UPSTREAM_REGION = ENV['UPSTREAM_REGION'].to_s.empty? ? 'eu-west-1' : ENV['UPSTREAM_REGION']
+LISTEN_PORT = 8080
 
 unless ENV['AWS_ACCESS_KEY_ID'].nil? || ENV['AWS_SECRET_ACCESS_KEY'].nil? || ENV['AWS_SESSION_TOKEN'].nil?
   CREDENTIALS = Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'],ENV['AWS_SECRET_ACCESS_KEY'],ENV['AWS_SESSION_TOKEN'])
@@ -56,6 +53,7 @@ app = Proc.new do |env|
 end
 
 webrick_options = {
+    :Host => '0.0.0.0',
     :Port => LISTEN_PORT,
 }
 

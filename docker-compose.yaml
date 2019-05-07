@@ -5,12 +5,14 @@ services:
     image: aws-signing-proxy:latest
     container_name: aws-signing-proxy
     environment:
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
-      - UPSTREAM_URL=${UPSTREAM_URL}
-      - UPSTREAM_SERVICE_NAME=${UPSTREAM_SERVICE_NAME}
-      - UPSTREAM_REGION=${UPSTREAM_REGION}
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_SESSION_TOKEN
+      - UPSTREAM_REGION
+      - UPSTREAM_SERVICE_NAME
+      - UPSTREAM_URL
+      - LISTEN_PORT
+      - INSIDE_DOCKER=true # DO NOT REMOVE! Otherwise the proxy won't listen on all network interfaces
     ports:
-      - 8080:8080
+      - "${LISTEN_PORT}:8080"
     restart: unless-stopped

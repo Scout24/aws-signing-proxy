@@ -22,7 +22,7 @@ GEM
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
-    rack (2.0.6)
+    rack (2.0.8)
 
 PLATFORMS
   ruby

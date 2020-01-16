@@ -1,0 +1,8 @@
+type: "reference"
+owners:
+  - "#AS24-Ghostbusters-IT-ds@scout24.com"
+id: "ghostbuster_runbooks"
+vertical: "as24"
+availability: false
+confidentiality: "company-internal"
+integrity: false

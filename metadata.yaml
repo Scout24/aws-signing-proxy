@@ -1,4 +1,5 @@
-type: "reference"
+type: documentation
+product: as24-aws-migration
 owners:
   - "#AS24-Ghostbusters-IT-ds@scout24.com"
 id: "ghostbuster_runbooks"

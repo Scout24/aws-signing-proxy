@@ -1,4 +1,5 @@
-type: "reference"
+type: "documentation"
+product: "ghostbuster_runbooks"
 owners:
   - "#AS24-Ghostbusters-IT-ds@scout24.com"
 id: "ghostbuster_runbooks"
